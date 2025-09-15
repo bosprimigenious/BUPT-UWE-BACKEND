@@ -1,0 +1,1 @@
+Node.js + TypeScript backend for the BUPT elective course platform, providing APIs for course management, user authentication, and data services.
