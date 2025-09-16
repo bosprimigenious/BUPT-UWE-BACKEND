@@ -8,7 +8,8 @@
     "dev": "nodemon --watch src --ext ts,json --exec node --loader ts-node/esm src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "seed:excel": "node scripts/readExcel.js"
+    "seed:excel": "node scripts/readExcel.js",
+    "seed:reviews": "node scripts/seedReviews.js"
   },
   "keywords": [],
   "author": "",
