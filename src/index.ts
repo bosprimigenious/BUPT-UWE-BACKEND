@@ -3,7 +3,9 @@ import type { Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
-import userRoutes from "./routes/userRoutes.js";
+// import userRoutes from "./routes/userRoutes.js";
+import courseRoutes from "./routes/courseRoutes.js";
+import reviewRoutes from "./routes/reviewRoutes.js";
 
 
 dotenv.config();
@@ -21,7 +23,10 @@ connectDB();
 app.get("/", (req: Request, res: Response) => {
   res.send("BUPT-UWE Backend is running 🚀");
 });
-app.use("/api/users", userRoutes);
+// 省略用户体系
+// app.use("/api/users", userRoutes);
+app.use("/api/courses", courseRoutes);
+app.use("/api/reviews", reviewRoutes);
 
 // 启动服务
 const PORT = process.env.PORT || 5000;

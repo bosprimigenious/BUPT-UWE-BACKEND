@@ -21,7 +21,8 @@ export const registerUser = async (req: Request, res: Response) => {
       password: hashedPassword,
     });
 
-    res.status(201).json({ message: "User registered successfully", user });
+    const safeUser = { _id: user._id, name: user.name, email: user.email, createdAt: user.createdAt } as any;
+    res.status(201).json({ message: "User registered successfully", user: safeUser });
   } catch (error) {
     res.status(500).json({ message: "Server error", error });
   }
@@ -41,7 +42,8 @@ export const loginUser = async (req: Request, res: Response) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    res.json({ message: "Login successful", user });
+    const safeUser = { _id: user._id, name: user.name, email: user.email, createdAt: user.createdAt } as any;
+    res.json({ message: "Login successful", user: safeUser });
   } catch (error) {
     res.status(500).json({ message: "Server error", error });
   }
